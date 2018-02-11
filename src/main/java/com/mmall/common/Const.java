@@ -1,5 +1,9 @@
 package com.mmall.common;
 
+import com.google.common.collect.Sets;
+
+import java.util.Set;
+
 /**
  * @author: zinuo
  * @date: 2/5/2018
@@ -7,6 +11,10 @@ package com.mmall.common;
  */
 public class Const {
     public static final String CURRENT_USER = "currentUser";
+
+    public interface ProductListOrderBy {
+        Set<String> PRICE_ASC_DESC = Sets.newHashSet("price_desc", "price_asc");
+    }
 
     // 内部接口常量分组
     public interface Role {
@@ -16,4 +24,23 @@ public class Const {
 
     public static final String EMAIL = "email";
     public static final String USERNAME = "username";
+
+    public enum ProductStatusEnum {
+        ON_SALE(1, "在线");
+        private String value;
+        private int code;
+
+        public String getValue() {
+            return value;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        ProductStatusEnum(int code, String value) {
+            this.code = code;
+            this.value = value;
+        }
+    }
 }
